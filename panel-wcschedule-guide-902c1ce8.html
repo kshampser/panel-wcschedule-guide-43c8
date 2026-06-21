@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯赛程 | 信息卡片式指南</title>
+    <style>
+        /* 全局重置与基础 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .page {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 主视觉 Hero */
+        .hero {
+            background: linear-gradient(145deg, #ffffff, #f9fafb);
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            color: #0f172a;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #475569;
+            max-width: 680px;
+            margin: 0 auto 1.2rem auto;
+        }
+
+        .hero .highlight {
+            display: inline-block;
+            background: #eef2f6;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #334155;
+            border: 1px solid #d1d9e6;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 600px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 960px) {
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: box-shadow 0.2s, transform 0.15s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .card .icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+
+        .card p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        .card ul {
+            list-style: none;
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            color: #334155;
+        }
+
+        .card ul li::before {
+            content: "·";
+            font-weight: 700;
+            margin-right: 0.4rem;
+            color: #64748b;
+        }
+
+        /* 信息内联卡片（两列宽） */
+        .feature-card-large {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 2rem 2rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (min-width: 600px) {
+            .feature-card-large {
+                flex-direction: row;
+                align-items: center;
+                gap: 2rem;
+            }
+        }
+
+        .feature-card-large .text-block {
+            flex: 2;
+        }
+
+        .feature-card-large .text-block h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+
+        .feature-card-large .text-block p {
+            color: #475569;
+            margin-bottom: 0.4rem;
+        }
+
+        .feature-card-large .aside-block {
+            flex: 1;
+            background: #f8fafc;
+            border-radius: 1rem;
+            padding: 1.2rem 1.2rem;
+            border: 1px solid #e2e8f0;
+            font-size: 0.95rem;
+            color: #334155;
+        }
+
+        .feature-card-large .aside-block strong {
+            color: #0f172a;
+        }
+
+        /* 自然链接段落（FAQ 风格） */
+        .faq-section {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 2rem 2rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+        }
+
+        .faq-section h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #0f172a;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eef1f5;
+            padding: 0.9rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: 0;
+        }
+
+        .faq-item .question {
+            font-weight: 500;
+            color: #1e293b;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item .answer {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        /* 页脚 */
+        .footer-note {
+            text-align: center;
+            padding: 1.5rem 0 0.5rem;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 2rem;
+        }
+
+        .footer-note a {
+            color: #334155;
+            text-decoration: none;
+            border-bottom: 1px dotted #b0bcc8;
+        }
+
+        .footer-note a:hover {
+            color: #0f172a;
+            border-bottom-color: #0f172a;
+        }
+
+        /* 辅助文字 */
+        .tag {
+            display: inline-block;
+            background: #e9edf2;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #334155;
+            border: 1px solid #d4dce8;
+            margin-right: 0.4rem;
+            margin-bottom: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- Hero 主视觉 -->
+        <header class="hero">
+            <h1>⚽ 赛程全景 · 世界杯</h1>
+            <p>从预选赛到决赛日，每一场对阵都值得清晰规划。这里整理了赛程结构、观赛节奏与关键时间节点，帮你快速建立完整的比赛地图。</p>
+            <div class="highlight">信息卡片式 · 无冗余</div>
+        </header>
+
+        <!-- 用途卡片 三列 -->
+        <div class="card-grid">
+            <div class="card">
+                <div class="icon">📅</div>
+                <h3>赛历速览</h3>
+                <p>分组阶段、淘汰赛日期与场地分布一目了然。适合需要提前标记比赛日、安排观看时间的球迷。</p>
+                <ul>
+                    <li>小组赛轮次</li>
+                    <li>16 强至决赛</li>
+                    <li>时区对照</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="icon">🧭</div>
+                <h3>对阵导航</h3>
+                <p>同一比赛日多场连赛，快速找到焦点对决。记录球队晋级路径，不错过关键战役。</p>
+                <ul>
+                    <li>焦点战标注</li>
+                    <li>晋级树状图</li>
+                    <li>场地与转播参考</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="icon">📋</div>
+                <h3>备忘清单</h3>
+                <p>可作为个人观赛计划的基础框架，自定义标记已看、待看、重赛，保持节奏不遗漏。</p>
+                <ul>
+                    <li>自定义标记</li>
+                    <li>赛果速记</li>
+                    <li>后续场次提醒</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 适合人群 + 自然链接 双列宽卡片 -->
+        <div class="feature-card-large">
+            <div class="text-block">
+                <h2>适合哪些人使用</h2>
+                <p><span class="tag">🏟️ 深度球迷</span><span class="tag">📺 直播爱好者</span><span class="tag">🧑‍🤝‍🧑 观赛小组</span></p>
+                <p>不论你是想提前规划整个赛程的硬核观众，还是只想在淘汰赛阶段挑重点看，这份赛历结构都能提供清晰的框架。尤其是多队并行时，一个可靠的赛程总览能节省大量翻查时间。你可以随时将 <a href="https://panel-wcschedule.com" style="color:#1d4ed8; text-decoration: underline; text-underline-offset: 3px; font-weight: 500;">世界杯赛程</a> 作为主参考，搭配个人笔记使用。</p>
+                <p style="margin-top: 0.6rem; font-size: 0.95rem; color: #475569;">页面内所有信息均基于公开赛历整理，不包含实时数据或预测内容。</p>
+            </div>
+            <div class="aside-block">
+                <strong>💡 一点提示</strong>
+                <p style="margin-top: 0.3rem;">赛程时间可能会因转播安排微调，建议在关键比赛日前再次核对。页面本身保持静态，适合用作初始规划。</p>
+                <div style="margin-top: 0.8rem; font-size: 0.9rem; background: #eef2f6; padding: 0.5rem 0.8rem; border-radius: 12px;">
+                    <span style="font-weight: 500;">📎 参考来源 · </span>FIFA 官方赛历
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 + 自然链接段落 -->
+        <div class="faq-section">
+            <h2>❓ 常见疑问摘要</h2>
+
+            <div class="faq-item">
+                <div class="question">赛程包含所有比赛吗？</div>
+                <div class="answer">是的，从小组赛第一轮到决赛，每个比赛日都有对应场次。页面按轮次分组，方便整体浏览。详细列表可访问 <a href="https://panel-wcschedule.com" style="color:#1d4ed8; text-decoration: underline; text-underline-offset: 3px;">世界杯赛程</a> 查看完整版本。</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">会不会更新实时比分？</div>
+                <div class="answer">本页为静态介绍，不包含实时数据。建议搭配官方比分推送或直播平台使用。赛程结构本身是固定的。</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">适合打印或截图吗？</div>
+                <div class="answer">卡片样式在浅色背景下对比度良好，适合截图或打印为纸质参考。字体大小已考虑可读性。</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">为什么选择卡片式呈现？</div>
+                <div class="answer">为了让信息模块独立、降低视觉干扰。每个卡片聚焦一个用途，你可以按需选取，不用从头看到尾。</div>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer-note">
+            <span>基于公开赛历整理 · 用于规划参考</span><br>
+            <span style="font-size: 0.8rem;">主页面 · <a href="https://panel-wcschedule.com">世界杯赛程</a></span>
+        </div>
+
+    </div>
+</body>
+</html>
