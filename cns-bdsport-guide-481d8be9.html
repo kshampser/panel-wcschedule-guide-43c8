@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>半岛体育 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f9fafb;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1f2937;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2.8rem 1.5rem 3.5rem;
+        }
+
+        /* Hero */
+        .hero {
+            margin-bottom: 3.2rem;
+            text-align: center;
+            padding-top: 1.2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5.5vw, 2.9rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #111827;
+            line-height: 1.2;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #4b5563;
+            max-width: 550px;
+            margin: 0 auto;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 1.2rem;
+            font-weight: 380;
+        }
+
+        /* sections common */
+        section {
+            margin: 2.8rem 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 550;
+            letter-spacing: -0.01em;
+            color: #111827;
+            margin-bottom: 1.1rem;
+            border-left: 3px solid #2563eb;
+            padding-left: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: #374151;
+        }
+
+        .text-muted {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        /* cards / highlight */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.8rem 0 0.8rem;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+            border: 1px solid #f1f3f5;
+            transition: box-shadow 0.15s;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 520;
+            margin-bottom: 0.3rem;
+            color: #111827;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #4b5563;
+            margin-bottom: 0;
+        }
+
+        .feature-card .num {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #2563eb;
+            background: #eef2ff;
+            padding: 0.1rem 0.6rem;
+            border-radius: 20px;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eef1f4;
+            padding: 1rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 500;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-answer {
+            color: #4b5563;
+            font-size: 0.95rem;
+        }
+
+        .footnote {
+            margin-top: 2.8rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .footnote a {
+            color: #1d4ed8;
+            text-decoration: none;
+            font-weight: 450;
+        }
+
+        .footnote a:hover {
+            text-decoration: underline;
+        }
+
+        .intro-link-line {
+            background: #f3f5f7;
+            border-radius: 40px;
+            padding: 0.9rem 1.6rem;
+            margin: 2rem 0 1rem;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .intro-link-line a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .intro-link-line a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 540px) {
+            .page {
+                padding: 2rem 1.2rem 2.8rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- Hero -->
+        <header class="hero">
+            <h1>半岛体育 · 信息介绍</h1>
+            <div class="sub">
+                一个基于网站定位与内容可信度展开的说明页<br>
+                面向有了解需求的访问者
+            </div>
+        </header>
+
+        <!-- 站点定位 / 可信说明 -->
+        <section>
+            <h2>关于本站</h2>
+            <p>
+                <a href="https://cns-bdsport.com" style="color:#2563eb;text-decoration:none;font-weight:500;">半岛体育</a> 
+                是一个聚焦体育资讯、赛事动态及运动文化传播的线上平台。站点内容覆盖多项主流体育项目，以信息整合与基础数据呈现为主，为浏览者提供相对系统的体育信息参考。页面结构力求清晰，减少冗余干扰，突出内容本身的可读性与条理性。
+            </p>
+            <p>
+                在信息组织上，站点采用分类与标签结合的方式，帮助用户根据兴趣方向快速定位相关内容。同时，平台保持相对稳定的更新节奏，确保资讯的时效性。从内容调性来看，更偏向实用信息传递，不渲染过度情绪，适合希望快速获取体育动态的访问者。
+            </p>
+        </section>
+
+        <!-- 优势区 (卡片) -->
+        <section>
+            <h2>特点与侧重</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="num">01</span>
+                    <h3>内容分类</h3>
+                    <p>按运动项目、赛事类型划分板块，减少信息噪音，提升查找效率。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="num">02</span>
+                    <h3>更新节奏</h3>
+                    <p>保持日常内容更新，着重关键赛事与热门话题的及时覆盖。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="num">03</span>
+                    <h3>呈现方式</h3>
+                    <p>采用清晰标题层级与适度留白，降低阅读负担，更适合深度浏览。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="num">04</span>
+                    <h3>中立视角</h3>
+                    <p>以信息整合为主，不过度解读，为访问者保留独立判断的空间。</p>
+                </div>
+            </div>
+            <p class="text-muted" style="margin-top:0.8rem;">
+                以上特点并非绝对优势，而是基于站点目前内容形态所做的客观描述，仅供浏览参考。
+            </p>
+        </section>
+
+        <!-- 说明区：使用场景与提示 -->
+        <section>
+            <h2>使用场景与建议</h2>
+            <p>
+                如果你希望快速了解某项赛事的基本赛程、近期结果或运动员动态，<a href="https://cns-bdsport.com" style="color:#2563eb;text-decoration:none;">半岛体育</a> 
+                可以作为信息入口之一。站点内容不替代官方数据源或专业统计机构，更适合日常性查阅与兴趣延伸。
+            </p>
+            <p>
+                建议结合其他权威信源交叉验证关键信息，尤其是在涉及数据统计、转会或规则变动等内容时。平台不会对用户决策（如参与体育竞猜、票务购买等）提供直接建议，所有内容仅供了解参考。
+            </p>
+            <div class="intro-link-line">
+                <span>→ 直接访问 </span><a href="https://cns-bdsport.com">半岛体育</a>
+            </div>
+        </section>
+
+        <!-- FAQ 摘要 -->
+        <section>
+            <h2>常见问题摘要</h2>
+            <div class="faq-item">
+                <div class="faq-question">平台内容是否涵盖所有体育项目？</div>
+                <div class="faq-answer">主要集中在主流运动（足球、篮球、网球、电竞等），小众项目覆盖相对有限，但会随关注度逐步补充。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">资讯更新频率如何？</div>
+                <div class="faq-answer">日常保持更新，重大赛事期间会适当增加密度。非赛事淡季可能减少频率，但不会长期停滞。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">是否需要注册或付费？</div>
+                <div class="faq-answer">当前浏览内容无须注册或付费，所有公开页面均可直接访问。部分互动功能可能需账号，但非强制。</div>
+            </div>
+            <p class="text-muted" style="margin-top:0.6rem;">
+                以上回答基于站点现有设定，未来若有调整以实际页面为准。
+            </p>
+        </section>
+
+        <!-- 底部链接与说明 -->
+        <footer class="footnote">
+            <p style="margin-bottom:0.4rem;">
+                站点 · <a href="https://cns-bdsport.com">半岛体育</a> — 信息介绍页
+            </p>
+            <p style="font-size:0.85rem; color:#9ca3af;">
+                本页仅作展示与说明，不构成任何形式的推荐或承诺。<br>
+                内容方向：知识型 · 站点介绍与可信说明
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
